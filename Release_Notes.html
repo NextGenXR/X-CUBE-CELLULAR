@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for X-CUBE-CELLULAR Package</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<center>
+<h1 id="release-notes-for-x-cube-cellular-cube-logo">Release Notes for <mark>X-CUBE-CELLULAR</mark> <a href="https://www.st.com/en/ecosystems/stm32cube-expansion-software.html" class="logo"><img src="_htmresc/Label_STM32CubeExpansion.png" alt="Cube logo" /></a></h1>
+<p>Copyright © 2021 STMicroelectronics<br />
+Microcontrollers Division - Application Team</p>
+<a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo_2020.png" alt="ST logo" /></a>
+</center>
+<h1 id="license">License</h1>
+<p>This software package is licensed under ST license SLA0048 (the “License”). You may not use this package except in compliance with the License. You may obtain a copy of the License at: <a href="http://www.st.com/SLA0048">SLA0048 Software license agreement</a>.</p>
+<h1 id="purpose">Purpose</h1>
+<p>The <mark>X-CUBE-CELLULAR</mark> (STM32 Cellular software expansion for STM32Cube)</p>
+<ul>
+<li>Enables connectivity over Cellular Network. The network access technology depends on the Cellular Modem used. It can be LTE CatM, NBIoT or fallback in 2G.</li>
+<li>Provides for STM32CubeMX, application example that connect to internet.</li>
+<li>This example, same for every supported hardware setups, demonstrates the cellular middleware capabilities.</li>
+<li>It contains 1 or 2 instances of Echo, Ping usage and throughput display.</li>
+<li>For B-L462E-CELL1 it also provides an application that read sensors and display information (sensors/network) on the LCD display.</li>
+<li>This example provides a vertical application for this all in one IoT board.</li>
+</ul>
+<p>New versions with more advanced features and optimization will be released regularly.</p>
+<p>Please take time to read at least the Release Notes and the Cellular MCU Wiki.</p>
+<p>The Cellular middleware is compliant with MISRA-C®:2012 with some minor limitations and checked against a static analysis tool to eliminate run-time errors. Reports are available on demand under NDA.</p>
+<p>All information about <a href="https://www.st.com/en/embedded-software/x-cube-cellular.html">X-CUBE-CELLULAR</a> on st.com</p>
+<p>Read carefully the modem Release Note, maybe your modem FW must be updated</p>
+<p>Modem Release Note is here : \Drivers\BSP\X_STMOD_PLUS_MODEMS\</p>
+<p>Cellular middleware Release Note is here : \Middlewares\ST\STM32_Cellular\</p>
+<p>Projects Release Note is here : \Projects\</p>
+<p>List of references to user documents:</p>
+<ul>
+<li><a href="https://wiki.st.com/stm32mcu/wiki/Cellular_LTE_CatM_/_NBIoT_overview">Cellular STMicroelectronics MCU Wiki</a> - ST Wiki dedicated to MCU, Cellular page</li>
+<li><a href="https://www.st.com/resource/en/data_brief/x-cube-cellular.pdf">DB3582</a> - Data Brief of the Cellular connectivity software expansion for STM32Cube</li>
+</ul>
+</div>
+<section id="update-history" class="col-sm-12 col-lg-8">
+<h1>Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V6.0.0 / 30-Apr-2021</label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<p>This V6.0.0 delivery is a complete rework of previous versions.</p>
+<p>APIs are improved</p>
+<p>Cellular middleware has only links with application and HAL/BSP, so modularity has been improved.</p>
+<p>Low power is introduced (for BG96 and Alt1250 modems)</p>
+<h2 id="contents">Contents</h2>
+<h3 id="low-layers">Low layers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L4xx HAL</td>
+<td style="text-align: left;">V1.13.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMSIS</td>
+<td style="text-align: left;">V5.6.0</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CMSIS STM32l4xx</td>
+<td style="text-align: left;">V1.7.1</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drivers">Drivers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP B-L462E-CELL1</td>
+<td style="text-align: left;">b-l462e-cell1_v2.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modems</td>
+<td style="text-align: left;">V6.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hts221</td>
+<td style="text-align: left;">v5.3.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lps22hh</td>
+<td style="text-align: left;">v1.2.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lsm303agr</td>
+<td style="text-align: left;">v5.4.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ssd1315</td>
+<td style="text-align: left;">v1.1.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<h3 id="middleware">Middleware</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Middleware Component</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">ST modified</th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cellular</td>
+<td style="text-align: left;">V6.0.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.2.1</td>
+<td style="text-align: left;">2020-01-17</td>
+<td style="text-align: left;">MIT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LwIP</td>
+<td style="text-align: left;">V2.1.2</td>
+<td style="text-align: left;">2019-03-15</td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<h3 id="utilities">Utilities</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V2.0.2</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">basic_gui</td>
+<td style="text-align: left;">V2.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Modem_FW Quectel</td>
+<td style="text-align: left;">02A08M1G_01.012.01.012</td>
+<td></td>
+<td style="text-align: left;">Quectel proprietary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applications">Applications</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cellular (all HW setups)</td>
+<td style="text-align: left;">cellular_appli_v1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CellularIoT (only 462)</td>
+<td style="text-align: left;">cellular_appli_iot_v1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backward-compatibilities">Backward compatibilities</h2>
+<p>X-CUBE-CELLULAR APIs are no backward compatible. Indeed APIs over Data Cache has been developped and merged to Cellular management ones. COM APIs are still backward compatible. So with V6.0.0 onwards there are 2 APIs for applications, COM (Data plane) and Ctrl (Control plane)</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>See Cellular Middleware Release Note.</p>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM). Version 8.50.5.</li>
+<li>Keil Microcontroller Development Kit (MDK-ARM) Version 5.27</li>
+<li>STM32CubeIDE Version 1.6.1</li>
+<li>STM32CubeMX Version 6.2.0 (associated to FW L4 1.17.0)</li>
+</ul>
+<h2 id="supported-boards">Supported Boards</h2>
+<ul>
+<li>STM32 boards
+<ul>
+<li>Discovery L496 (standalone STM32L496G-Discovery)</li>
+<li>Discovery L4S5 (aka IoT node V1.5 / B-L4S5I-IOT01A)</li>
+<li>Evaluation STWIN (STEVAL-STWINKIT1B)</li>
+</ul></li>
+<li>Modem boards
+<ul>
+<li>STMod+ BG96</li>
+<li>STMod+ GM01Q &amp; GMS01Q</li>
+</ul></li>
+<li>Module on boards
+<ul>
+<li>Discovery T1SE (B-L462E-CELL1)</li>
+</ul></li>
+<li>Packs
+<ul>
+<li>P-L496G-CELL02</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V5.2.0 / 30-Sept-2020</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
+<p>This V5.2.0 delivery is a maintenance release with new features, optimisations. HW support, Murata T1SE and STWIN are added.</p>
+<p>To obtain Murata T1SC board (EVK), please contact Murata.</p>
+<h2 id="contents-1">Contents</h2>
+<h3 id="low-layers-1">Low layers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L4xx HAL</td>
+<td style="text-align: left;">V1.12.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMSIS</td>
+<td style="text-align: left;">V5.6.0</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CMSIS STM32l4xx</td>
+<td style="text-align: left;">V1.7.0</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drivers-1">Drivers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Common</td>
+<td style="text-align: left;">V5.1.2</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L496G-Discovery</td>
+<td style="text-align: left;">V1.1.5</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP B_L475E_IOT01</td>
+<td style="text-align: left;">V1.1.6</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP B-L462E-CELL1</td>
+<td style="text-align: left;">b-l462e-cell01_v3.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Modems</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<h3 id="middleware-1">Middleware</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Middleware Component</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">ST modified</th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cellular</td>
+<td style="text-align: left;">V5.2.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Network_Library</td>
+<td style="text-align: left;">V2.1.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.2.1</td>
+<td style="text-align: left;">2020-01-17</td>
+<td style="text-align: left;">MIT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LwIP</td>
+<td style="text-align: left;">V2.1.2</td>
+<td style="text-align: left;">2019-03-15</td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mbedTLS</td>
+<td style="text-align: left;">V2.14.1</td>
+<td style="text-align: left;">2019-03-29</td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LiamBindle_mqtt-c</td>
+<td style="text-align: left;">liamBindle_mqtt-c_v1.2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">MIT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="utilities-1">Utilities</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V1.0.1</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modem_FW ST</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Modem_FW Quectel</td>
+<td style="text-align: left;">02A08M1G_01.012.01.012</td>
+<td></td>
+<td style="text-align: left;">Quectel proprietary</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MQTT (json for NodeRED)</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applications-1">Applications</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Echo Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PING Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HTTP Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MQTT Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COM Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Custom Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UI Client</td>
+<td style="text-align: left;">V5.2.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backward-compatibilities-1">Backward compatibilities</h2>
+<p>X-CUBE-CELLULAR API backward compatible, COM API enriched with COM_ICC.</p>
+<h2 id="known-limitations-1">Known Limitations</h2>
+<p>See Cellular Middleware Release Note.</p>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM). Version 8.50.5.</li>
+<li>Keil Microcontroller Development Kit (MDK-ARM) Version 5.29</li>
+<li>STM32CubeIDE Version 1.4.2</li>
+<li>STM32CubeMX Version 6.0.1 (contains FW L4 1.16.0)</li>
+</ul>
+<h2 id="supported-boards-1">Supported Boards</h2>
+<ul>
+<li>STM32 boards
+<ul>
+<li>Discovery L496 (standalone STM32L496G-Discovery)</li>
+<li>Discovery L475 (aka IoT node / B_L475E_IOT01)</li>
+<li>Discovery T1SE (Unofficial / B-L462E-CELL1)</li>
+<li>Evaluation STWIN (Unofficial / STEVAL-STWINKIT1)</li>
+</ul></li>
+<li>Modem boards
+<ul>
+<li>STMod+ UG96</li>
+<li>STMod+ BG96</li>
+<li>STMod+ GM01Q</li>
+<li>STMod+ GMS01Q (Unofficial)</li>
+<li>EVK T1SC (Unofficial)</li>
+</ul></li>
+<li>Packs
+<ul>
+<li>P-L496G-CELL01</li>
+<li>P-L496G-CELL02</li>
+</ul></li>
+</ul>
+<p>EVK T1SC is connected to Discolevry L496 thanks to STMod+ connector. Adaptation EVK to enable STMod+ is subject to change.</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section2" aria-hidden="true"> <label for="collapse-section2" aria-hidden="true">V5.1.0 / 24-Apr-2020</label>
+<div>
+<h2 id="main-changes-2">Main Changes</h2>
+<p>This V5.1.0 delivery is a maintenance release with new features, optimisations. HW support, Murata T1SC is added.</p>
+<p>To obtain Murata T1SC board (EVK), please contact Murata.</p>
+<p>3 new applications are added, MQTT, COM and CUSTOM, see Cellular Middleware for more details</p>
+<h2 id="contents-2">Contents</h2>
+<h3 id="low-layers-2">Low layers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L4xx HAL</td>
+<td style="text-align: left;">V1.11.1</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMSIS</td>
+<td style="text-align: left;">V5.4.0</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CMSIS STM32l4xx</td>
+<td style="text-align: left;">V1.6.1</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drivers-2">Drivers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Common</td>
+<td style="text-align: left;">V5.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L496G-Discovery</td>
+<td style="text-align: left;">V1.1.1</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP B_L475E_IOT01</td>
+<td style="text-align: left;">V1.1.3</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modems</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<h3 id="middleware-2">Middleware</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Middleware Component</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">ST modified</th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cellular</td>
+<td style="text-align: left;">V5.1.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Network_Library</td>
+<td style="text-align: left;">V2.0.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.2.1</td>
+<td style="text-align: left;">2020-01-17</td>
+<td style="text-align: left;">MIT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LwIP</td>
+<td style="text-align: left;">V2.1.2</td>
+<td style="text-align: left;">2019-03-15</td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mbedTLS</td>
+<td style="text-align: left;">V2.14.1</td>
+<td style="text-align: left;">2019-03-29</td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LiamBindle_mqtt-c</td>
+<td style="text-align: left;">liamBindle_mqtt-c_v1.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">MIT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="utilities-2">Utilities</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V1.0.1</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Misc</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Modem_FW ST</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modem_FW Quectel</td>
+<td style="text-align: left;">02A08M1G_01.012.01.012</td>
+<td></td>
+<td style="text-align: left;">Quectel proprietary</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MQTT (json for NodeRED)</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applications-2">Applications</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Echo Client</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PING Clientmmon</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HTTP Client</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MQTT Client</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COM Client</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Custom Client</td>
+<td style="text-align: left;">V5.1.0</td>
+<td></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backward-compatibilities-2">Backward compatibilities</h2>
+<p>Backward compatible, COM API enriched with COM_ICC.</p>
+<h2 id="known-limitations-2">Known Limitations</h2>
+<p>See Cellular middleware Release Note.</p>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM). Version 8.32.3.</li>
+<li>Keil Microcontroller Development Kit (MDK-ARM) Version 5.27.1.</li>
+<li>STM32CubeIDE Version 1.2.1.</li>
+<li>STM32CubeMX Version 5.6.0</li>
+</ul>
+<h2 id="supported-boards-2">Supported Boards</h2>
+<ul>
+<li>STM32 boards
+<ul>
+<li>Discovery L496</li>
+<li>Discovery L475 (IoT node)</li>
+</ul></li>
+<li>Modem boards
+<ul>
+<li>STMod+ UG96</li>
+<li>STMod+ BG96</li>
+<li>STMod+ GM01Q</li>
+<li>EVK T1SC</li>
+</ul></li>
+</ul>
+<p>EVK T1SC is connected to Discolevry L496 thanks to STMod+ connector. Adaptation EVK to enable STMod+ is subject to change.</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V5.0.0 / 11-Oct-2019</label>
+<div>
+<h2 id="main-changes-3">Main Changes</h2>
+<p>This V5.0.0 delivery is a new release with new features. HW support is the same as previous delivery - Network library support is added - quality is improved (MISRA-C®:2012, MCUAstyle and CodeSonar) - For IDEs, STM32CubeIDE replaces SW4STM32 (also based on Eclipse)</p>
+<ul>
+<li>Previous releases:
+<ul>
+<li>V1.0.0 (W1826) is the first release</li>
+<li>V1.1.0 (W1829) is for improvement and bug fixing</li>
+<li>V1.1.1 (W1832) bug fixing</li>
+<li>V2.0.0 (W1845) 2nd official release (no new HW supported)</li>
+<li>V3.0.0 (W1907) 3rd official release with new HW supported, the Sequans GM01Q</li>
+<li>V4.0.0 (W1921) 4th official release with new features (see Cellular middleware Release Note for details)</li>
+</ul></li>
+</ul>
+<p>Concerning Cellular middleware there are 2 important Release Noets to be read; Cellular framework and Supported modems Read carefully the modem Relase Note, may be your modem FW must updated</p>
+<h3 id="contents-3">Contents</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L4xx HAL</td>
+<td style="text-align: left;">V1.10.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMSIS</td>
+<td style="text-align: left;">V5.4.0</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CMSIS STM32l4xx</td>
+<td style="text-align: left;">V1.5.1</td>
+<td></td>
+<td style="text-align: left;">Apache-2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Drivers</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">BSP Component</th>
+<th style="text-align: left;">Version</th>
+<th></th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Common</td>
+<td style="text-align: left;">V5.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L496G-Discovery</td>
+<td style="text-align: left;">V1.1.1</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP B_L475E_IOT01</td>
+<td style="text-align: left;">V1.1.3</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modems</td>
+<td style="text-align: left;">V5.0.0</td>
+<td></td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<p>Middleware</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">ST modified</th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cellular</td>
+<td style="text-align: left;">V5.0.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SLA0044</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.2.1</td>
+<td style="text-align: left;">2019-07-19</td>
+<td style="text-align: left;">MIT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LwIP</td>
+<td style="text-align: left;">V2.1.2</td>
+<td style="text-align: left;">2019-03-15</td>
+<td style="text-align: left;">BSD-3-Clause</td>
+</tr>
+</tbody>
+</table>
+<p>Applications</p>
+<ul>
+<li>Echo Client</li>
+<li>PING Client</li>
+<li>HTTP Client</li>
+</ul>
+<h2 id="known-limitations-3">Known Limitations</h2>
+<p>See Cellular middleware Release Note.</p>
+<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM). Version 8.32.3.</li>
+<li>Keil Microcontroller Development Kit (MDK-ARM) Version 5.27.</li>
+<li>STM32CubeIDE Version 1.0.2.</li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and Boards</h2>
+<ul>
+<li>P-L496G-CELL01</li>
+<li>P-L496G-CELL02</li>
+<li>X-NUCLEO-IKS01A2</li>
+<li>B-L475-IOT01A</li>
+<li>X-NUCLEAO-STMODA1</li>
+<li>MB1329B(Quectel BG96 modem on STMod+ board)</li>
+<li>32L496GDISCOVERY</li>
+<li>GM01Q-STMOD (Sequans GM01Q modem on STMod+ board)</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<footer class="sticky">
+For complete documentation on <mark>STM32</mark> microcontrollers please visit <a href="http://www.st.com/stm32" class="uri">http://www.st.com/stm32</a>
+</footer>
+</body>
+</html>
